@@ -1,0 +1,22 @@
+#details{
+    background: rgb(108, 142, 253);
+
+}
+#addname {
+  /* background: 
+     */
+  background: rgb(47, 81, 233);
+}
+#memberModal{
+    margin-top: 150px;
+}
+button{
+    outline: none;
+    /* background: red; */
+}
+#list input{
+    width: 90px;
+}
+#list .admin{
+    color: red;
+}

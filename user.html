@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 注意引入包的顺序 -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>欢迎使用实验室签到系统用户中心</title>
+    <link rel="stylesheet" href="banner.css">
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="user.css">
+    <link rel="icon" href="icon.png">
+    <link rel="stylesheet" href="degree.css">
+</head>
+
+<body>
+    <div class="banner">
+        <div class="title">
+            <h2>欢迎使用实验室签到系统</h2>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">
+                        <!-- 模态框（Modal）标题 -->
+                        个人信息
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    用户名：
+                    <input id="username" type="text" disabled='disabled'>
+                    <br>
+                    <script>
+                        function getName() {
+                            // console.log('test');
+                            var name = document.getElementById('username');
+                            name.value = localStorage.username;
+                        }
+                    </script> 原密码：
+                    <input type="text" id="oldpsw">
+                    <span id="oldpswdesc">*请输入您的原密码</span>
+                    <br> 新密码：
+                    <input type="text" id="newpsw" onkeydown="degree(this)" maxlength="8">
+                    <table class="degree">
+                        <tbody>
+                            <tr>
+                                <td id="weak"></td>
+                                <td id="middle"></td>
+                                <td id="strong"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button id="cbtn" type="button" class="btn btn-default" data-dismiss="modal">
+                        关闭
+                    </button>
+                    <button id="savebtn" type="button" class="btn btn-primary">
+                        提交更改
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <script src="degree.js"></script>
+    
+    <script src="userModal.js"></script>
+    <div class="desc">
+        欢迎您
+        <!-- <a href="" > -->
+        <span class="btn btn-lg" data-toggle="modal" data-target="#myModal" id="name" onclick="getName()" title="点击查看个人中心">XXX</span>
+        <!-- </a> -->
+        用户
+        <a href="login.html">
+            <img id="logout" src="logout.png" alt="" title="点击注销">
+        </a>
+    </div>
+    <div class="container">
+        <div class="table">
+            <div class="op">
+                <span id="getMonth">X</span>月
+                <select id="week" onclick="sel()" class="form-control">
+                    <option id="week1">第一周
+                        <!-- <nav>这是描述</nav> -->
+                    </option>
+                    <option id="week2">第二周
+                        <!-- <div class="desc"></div> -->
+                    </option>
+                    <option id="week3">第三周
+                        <!-- <div class="des"></div> -->
+                    </option>
+                    <option id="week4">第四周
+                        <!-- <div class="desc"></div> -->
+                    </option>
+                    <option id="week5">第五周</option>
+                    </option>
+                </select>
+                开始：
+                <input class="text" id="start" type="text" name="" readonly> 结束：
+                <input id="end" class="text" type="text" name="" readonly>
+                <input id="search" class="btn btn-primary" type="button" value="点击查询" onclick="getAll()">
+            </div>
+            <table>
+                <tbody id="list">
+                    <tr>
+                        <td>日期</td>
+                        <td>签到时间</td>
+                        <td>签退时间</td>
+                        <td>纪录时长</td>
+                        <td>备注</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="footer">&copy;lm401</div>
+</body>
+
+<script src="user.js"></script>
+
+</html>

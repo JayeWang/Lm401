@@ -1,0 +1,15 @@
+#logout{
+    margin-right: 10px;
+    width: 10px;
+    /* display: inline; */
+    float: right;
+}
+#logout{
+    width: 20px;
+}
+input.text{
+    width: 100px;
+}
+#list tr td input{
+    padding: 0px 5px;
+}

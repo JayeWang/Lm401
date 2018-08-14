@@ -1,0 +1,44 @@
+.banner {
+    width: 1110px;
+    height: auto;
+    background: rgb(89, 125, 243);
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+.banner .title {
+    padding: 10px;
+    color: white;
+}
+
+.container {
+    width: 1110px;
+    height: auto;
+    padding: 0;
+    margin-left: 120px;
+    background: white;
+
+}
+
+.container .tablebox {
+    width: 100%;
+    /* background: pink; */
+}
+
+/* .table table,
+td {
+    border: 1px solid gray;
+} */
+
+.table input {
+    margin-left: 20px;
+}
+
+.table tr td:nth-child(even) {
+    text-align: center;
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+}

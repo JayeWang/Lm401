@@ -1,0 +1,75 @@
+.banner {
+    float: left;
+}
+
+.bannerbtn {
+    /* float: right; */
+}
+
+.banner .title {
+    /* display: inline; */
+    float: left;
+}
+
+.bannerbtn {
+    width: auto;
+    /* height: 56px; */
+    float: right;
+    margin: 0;
+    padding: 0;
+    margin-top: -5px;
+    /* background: pink; */
+}
+
+.bannerbtn ul {
+    /* float: right; */
+    list-style: none;
+}
+
+.bannerbtn ul li {
+    /* display: inline; */
+    float: left;
+    width: 100px;
+    height: 100%;
+    line-height: 56px;
+    text-align: center;
+}
+#details{
+    background: rgb(47, 81, 233);
+}
+li:hover {
+    background: rgb(47, 81, 233);
+}
+#logout{
+    margin-right: 10px;
+    float: right;
+    width: 20px;
+}
+.container #export{
+
+    float: right;
+}
+#infoModal{
+    margin-top: 100px;
+}
+.btn-lg{
+    padding: 5px;
+}
+input.text{
+    width: 90px;
+}
+select#week{
+    width: 100px;
+}
+#listr td input{
+    margin-top: -5px;
+    /* height: 20px; */
+    /* line-height: 20px; */
+    font-size: 10px;
+}
+.modal-content{
+    width: 600px;
+}
+#infoName{
+    text-decoration: underline;
+}

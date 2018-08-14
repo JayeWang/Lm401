@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>欢迎使用实验室签到系统成员信息中心</title>
+    <link rel="stylesheet" href="banner.css">
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="info.css">
+    <link rel="icon" href="icon.png">
+    <link rel="stylesheet" href="degree.css">
+    
+</head>
+
+<body>
+    <div class="banner">
+        <div class="title">
+            <h2>欢迎使用实验室签到系统</h2>
+        </div>
+        <div class="bannerbtn">
+            <ul>
+                <li id="details">打卡详情</li>
+                <li id="addname">成员信息</li>
+                <li id="addfun">待添加</li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">
+                        <!-- modal title -->
+                        个人信息
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                        <!-- clcik to close modal(click function) -->
+                    </button>
+                </div>
+                <div class="modal-body">
+                    用户名：
+                    <input id="username" type="text" disabled='disabled'>
+                    <br>
+                    <script>
+                        // show this member name and change this information
+                        function getName() {
+                            // console.log('test');
+                            var name = document.getElementById('username');
+                            name.value = localStorage.username;
+                        }
+                    </script> 原密码：
+                    <input type="text" id='oldpsw'> <span id="tips">*请输入您的原密码</span>
+                    <br> 新密码：
+                    <input type="text" id="newpsw" onkeydown="degree(this)" maxlength="8"> 
+                    <table class="degree">
+                            <tbody>
+                                <tr>
+                                    <td id="weak"></td>
+                                    <td id="middle"></td>
+                                    <td id="strong"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+                <div class="modal-footer">
+                    <button id="cbtn" type="button" class="btn btn-default" data-dismiss="modal">
+                        关闭
+                    </button>
+                    <button id="savebtn" type="button" class="btn btn-primary">
+                        提交更改
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <!-- member -->
+    <div class="modal fade" id="memberModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">
+                        <!-- 模态框（Modal）标题 -->
+                        新成员信息
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                </div>
+                <div class="modal-body">
+                    姓名：
+                    <input id="newName" type="text">
+                    <br> 账号：
+                    <input id="newUsername" type="text">
+                    <br>
+                </div>
+                <div class="modal-footer">
+                    <button id="mcbtn" type="button" class="btn btn-default" data-dismiss="modal">
+                        关闭
+                    </button>
+                    <button id="msavebtn" type="button" class="btn btn-primary" onclick="addMember()">
+                        提交信息
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <!--  -->
+    <script>
+        // $(function () {
+        //     $('#myModal').on('hide.bs.modal', function () {
+        //         alert('修改信息还没有保存哦');
+        //     })
+        // });
+    </script>
+        <script src="degree.js"></script>
+        
+    <script src="infoModal.js"></script>
+    <div class="desc">
+        欢迎您
+        <!-- <a href="" > -->
+        <span class="btn btn-lg" data-toggle="modal" data-target="#myModal" id="name" onclick="getName()" title="点击查看个人中心">XXX</span>
+        <!-- </a> -->
+        管理员
+        <a href="login.html">
+            <img id="logout" src="logout.png" alt="" title="点击注销">
+        </a>
+
+    </div>
+    <div class="container">
+        <div class="table">
+            <div class="op">
+                <h3>成员信息表</h3>
+            </div>
+            <table>
+                <tbody id="list">
+                    <tr>
+                        <td>姓名</td>
+                        <td>账号名</td>
+                        <td>重置密码</td>
+                        <td>删除</td>
+                        <td>权限管理</td>
+                    </tr>
+                    <tr hidden>
+                        <td>user1</td>
+                        <td>user1</td>
+                        
+                        <td>
+                            <input class="btn btn-warning reset" type="button" value="重置密码" onclick="reset(this)">
+                        </td>
+                        <td>
+                            <input class="btn btn-danger delet" type="button" value="删除" onclick="delet(this)">
+                        </td>
+                        <td>
+                            <input class="btn btn-primary empower" type="button" value="授权" onclick="empower(this)">
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <input hidden id="export" class="btn btn-primary" type="button" value="导出信息报表">
+            <input id="add" class="btn btn-primary btn-lg" type="button" value="添加成员" data-toggle="modal" data-target="#memberModal">
+        </div>
+
+    </div>
+    <div class="footer">&copy;lm401版权所有</div>
+</body>
+
+<script src="info.js">// page onload then show member informatio</script>
+<!-- import jscript -->
+<script src="banner-btn.js"></script>
+</html>
